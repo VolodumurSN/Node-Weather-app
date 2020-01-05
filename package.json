@@ -4,7 +4,8 @@
   "description": "this is node js basics weather app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.js",
+    "prod": "node index.js"
   },
   "keywords": [
     "node",
@@ -15,6 +16,7 @@
   "author": "Volodumur Snaichuk",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.0.1",
     "express": "^4.17.1"
   },
   "devDependencies": {

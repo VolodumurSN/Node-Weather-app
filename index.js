@@ -2,10 +2,15 @@ const express = require('express')
 
 const app = express()
 
-// When I reload page, 'get' request is begin:
+app.set('view engine', 'ejs')   //default: search .ejs in /views/...
+app.use(express.static('public'))   //static files in /public/...
+
+
+// When I reload page(request to root page), then 'get' request is begin:
 app.get('/', (req, res) => {
-    res.end('Hello from nodejs')
+    res.render('index')     // and file index.ejs will be render
 })
+
 
 app.listen(3000, () => {
     console.log('Server has started on port 3000...')
