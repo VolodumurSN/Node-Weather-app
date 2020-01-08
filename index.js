@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended: true}))   //need for 'req.body' to read
 
 // When I reload page(request to root page), then 'get' request is begin:
 app.get('/', (req, res) => {
-    res.render('index')     // and file index.ejs will be render
+    res.render('index', {weather: null, error: null})     // and file index.ejs will be render
 })
 
 
@@ -20,11 +20,7 @@ app.post('/', async (req, res) => {  //res -- it is answear, req -- request
     const { city } = req.body
     const {weather, error} = await weatherRequest(city)
 
-    console.log('Weather: ', weather)
-    console.log('Error: ', error)
-    
-
-    res.render('index')
+    res.render('index', {weather, error})
 })
 
 
